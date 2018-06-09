@@ -3,8 +3,8 @@
     <div class="input-group" style="padding: 8vh">
       <input type="text" [(ngModel)]="searchText" placeholder="Search for Books,Characters Or Houses" class="form-control" aria-label="Text input with dropdown button">
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedValue}}</button>
-        <div class="dropdown-menu">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedValue}}</button>
+        <div class="dropdown-menu" style="cursor: pointer;">
           <a class="dropdown-item" (click)="selectValue('Books')">Books</a>
           <a class="dropdown-item" (click)="selectValue('Characters')">Characters</a>
           <a class="dropdown-item" (click)="selectValue('Houses')">Houses</a>
