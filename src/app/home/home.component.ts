@@ -24,8 +24,6 @@ export class HomeComponent implements OnInit {
     this.spinnerService.show();
     this.allBooks = this.fetchAllInfo.getAllBooks().subscribe(
       data => {
-        console.log('Books');
-        console.log(data);
         this.allBooks = data;
         this.getall(this.allBooks);
       },
@@ -37,8 +35,6 @@ export class HomeComponent implements OnInit {
 
     this.allCharacters = this.fetchAllInfo.getAllCharacters().subscribe(
       data => {
-        console.log('Characters');
-        console.log(data);
         this.allCharacters = data;
         this.getall(this.allCharacters);
       },
@@ -52,8 +48,6 @@ export class HomeComponent implements OnInit {
     // getting all houses
     this.allHouses = this.fetchAllInfo.getAllHouses().subscribe(
       data => {
-        console.log('Houses');
-        console.log(data);
         this.allHouses = data;
         this.getall(this.allHouses);
 
