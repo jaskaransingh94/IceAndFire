@@ -1,0 +1,10 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 20vh
+}
+a:hover { 
+    color:white !important; 
+}

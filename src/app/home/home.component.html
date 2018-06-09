@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="input-group" style="padding: 8vh">
+      <input type="text" [(ngModel)]="searchText" class="form-control" aria-label="Text input with dropdown button">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedValue}}</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="selectValue('Books')">Books</a>
+          <a class="dropdown-item" (click)="selectValue('Characters')">Characters</a>
+          <a class="dropdown-item" (click)="selectValue('Houses')">Houses</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="selectValue('All')">All</a>
+        </div>
+      </div>
+    </div>
+    <ng4-loading-spinner> </ng4-loading-spinner>
+    <div class="row justify-content-center align-items-center" style="text-align:center;" *ngIf="allInfo!=undefined && allInfo.length>0">
+      <div *ngFor="let info of allInfo | filter : searchText" class="col-xs-12 col-sm-12 col-md-5 col-lg-4 justify-content-center align-items-center">
+
+        <div class="card" style="width: 18rem;margin: 2vh" *ngIf="info.url.includes('books');">
+          <img class="card-img-top" src="assets/images/c.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{info.name | uppercase}}</h5>
+            <a [routerLink]="['/view','books',getselection(info.url)]" class="btn btn-primary">READ</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;margin: 2vh" *ngIf="info.url.includes('characters');">
+          <img class="card-img-top" src="assets/images/a.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{info.name | uppercase}}</h5>
+            <a [routerLink]="['/view','characters',getselection(info.url)]" class="btn btn-primary">READ</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;margin: 2vh" *ngIf="info.url.includes('houses');">
+          <img class="card-img-top" src="assets/images/b.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{info.name | uppercase}}</h5>
+            <a [routerLink]="['/view','houses',getselection(info.url)]" class="btn btn-primary">READ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
